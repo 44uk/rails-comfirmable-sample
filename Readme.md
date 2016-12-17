@@ -4,8 +4,14 @@
 
 ```
 docker build -t myrails/confirmable .
-docker run --name myrails -d -p 3000:3000 myrails/confirmable
-docker exec myrails bin/rake db:migrate
+docker run --name myrails -d -p 3001:3000 myrails/confirmable
 ```
 
-http://#{docker-machine.ip}:3000
+or
+
+```
+docker-compose build
+docker-compose up
+```
+
+http://#{docker-machine.ip}:3001
