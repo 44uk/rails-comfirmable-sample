@@ -11,9 +11,9 @@
     </div>
   <% end %>
 
-  <%= f.hidden_field :confirmed %>
+  <%= f.hidden_field :submited%>
 
-  <% if @user.confirmed.blank? %>
+  <% if @user.submited.blank? %>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
@@ -46,8 +46,8 @@
     <%= f.hidden_field :name %>
   </div>
   <div class="actions">
-    <%= f.button "戻る", name: "#{f.object_name}[completed]", value: ""  %>
-    <%= f.button "作成", name: "#{f.object_name}[completed]", value: "1" %>
+    <%= f.button "戻る", name: "#{f.object_name}[confirmed]", value: ""  %>
+    <%= f.button "作成", name: "#{f.object_name}[confirmed]", value: "1" %>
   </div>
   <% end %>
 <% end %>
