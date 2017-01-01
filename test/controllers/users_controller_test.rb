@@ -24,6 +24,47 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to user_path(assigns(:user))
   end
 
+  test "should not create user when submited" do
+    assert_difference('User.count', 0) do
+      post :create, user: {
+        email: @user.email,
+        name: @user.name,
+        password: @user.password,
+        submited: ""
+      }
+    end
+
+    assert_response :success
+  end
+
+  test "should not create user when unconfirmed" do
+    assert_difference('User.count', 0) do
+      post :create, user: {
+        email: @user.email,
+        name: @user.name,
+        password: @user.password,
+        submited: "1",
+        confirmed: ""
+      }
+    end
+
+    assert_response :success
+  end
+
+  test "should create user when confirmed" do
+    assert_difference('User.count') do
+      post :create, user: {
+        email: @user.email,
+        name: @user.name,
+        password: @user.password,
+        submited: "1",
+        confirmed: "1"
+      }
+    end
+
+    assert_redirected_to user_path(assigns(:user))
+  end
+
   test "should show user" do
     get :show, id: @user
     assert_response :success

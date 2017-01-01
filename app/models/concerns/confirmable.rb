@@ -12,7 +12,15 @@ module Confirmable
     private
 
     def confirming
-      self.submited = errors.include?(:submited) && errors.size == 1 ? '1' : ''
+      if self.submited == ""
+        self.submited = errors.include?(:submited) && errors.size == 1 ? "1" : ""
+      end
+
+      if self.confirmed == ""
+        self.submited  = nil
+        self.confirmed = nil
+      end
+
       clear_confirming_errors
     end
 
