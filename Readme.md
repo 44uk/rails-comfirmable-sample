@@ -1,10 +1,13 @@
-# Ruby on Rails / Confirmable sample
+# Ruby on Rails / REST confirmation sample
 
-## Demonstration
+See `app/models/concerns/confirmable.rb`.
+
+
+## Demonstration with docker
 
 ```
-docker build -t demo/rails_confirmable .
-docker run --name demo -d -p 3001:3000 demo/rails_confirmable
+$ docker build -t demo_rails_rest_confirmation .
+$ docker run --rm -p 3000:3000 demo_rails_rest_confirmation
 ```
 
-Open http://#{docker-machine.ip}:3001/users
+Open http://localhost:3000/
