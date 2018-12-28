@@ -1,5 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe User, type: :model do
+  let(:user) { FactoryBot.build(:user,
+    email: 'user@example.com',
+    password: 'P@ssw0rd',
+    name: 'User Name'
+  )}
+  it { expect(user.save).to be true }
 end
