@@ -69,6 +69,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
+      # if you don't want to show confirming screen, skip passing `:submited` and `:confirmed`.
+      # the confirming logic stop to work.
       params.require(:user).permit(:email, :password, :name, :submited, :confirmed)
     end
 end
